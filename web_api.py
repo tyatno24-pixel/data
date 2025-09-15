@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, send_from_directory, request
 import threading
 import time
-from data_manager import (
+import os
+from data_manager import ( # Impor DB_FILE untuk digunakan di sini
+    DB_FILE,
     load_app_data, save_app_data,
     get_salary_data, add_employee_to_data, update_employee_day_in_data,
     submit_weekly_salary_to_data, delete_employee_from_data,
@@ -10,6 +12,13 @@ from data_manager import (
 )
 
 app = Flask(__name__)
+
+# Pastikan file database ada saat aplikasi pertama kali dijalankan
+if not os.path.exists(DB_FILE):
+    print("File database.json tidak ditemukan, membuat file baru...")
+    initial_data = {"theme": "superhero", "font": "Arial", "shopping_list": [], "salary_data": {"employees": [], "all_time": {}}}
+    save_app_data(initial_data)
+
 
 @app.route('/data', methods=['GET'])
 def get_data():

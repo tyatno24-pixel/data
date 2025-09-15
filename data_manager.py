@@ -1,7 +1,11 @@
 import json
 import os
 
-DB_FILE = "database.json"
+# Dapatkan direktori tempat file ini (data_manager.py) berada
+project_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Buat path absolut ke file database.json di dalam direktori proyek
+DB_FILE = os.path.join(project_dir, "database.json")
 
 # Helper for salary data
 work_states = ["Libur", "Setengah Hari", "1 Hari Full"]
