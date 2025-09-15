@@ -11,7 +11,11 @@ from data_manager import ( # Impor DB_FILE untuk digunakan di sini
     work_states # Keep work_states for validation in API
 )
 
-app = Flask(__name__)
+# Dapatkan path absolut ke direktori proyek
+project_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Konfigurasi Flask untuk menggunakan direktori proyek sebagai folder statis
+app = Flask(__name__, static_folder=project_dir, static_url_path='')
 
 # Pastikan file database ada saat aplikasi pertama kali dijalankan
 if not os.path.exists(DB_FILE):
@@ -119,15 +123,15 @@ def delete_employee_api(employee_name):
 
 @app.route('/')
 def serve_index():
-    return send_from_directory('.', 'index.html')
+    return app.send_static_file('index.html')
 
 @app.route('/index.html')
 def serve_index_html():
-    return send_from_directory('.', 'index.html')
+    return app.send_static_file('index.html')
 
 @app.route('/salary_tracker_web')
 def serve_salary_tracker_web():
-    return send_from_directory('.', 'salary_tracker_web.html')
+    return app.send_static_file('salary_tracker_web.html')
 
 def run_flask_app():
     app.run(host='0.0.0.0', port=5001, debug=False) 
