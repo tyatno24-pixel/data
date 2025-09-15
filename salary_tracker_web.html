@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencatat Gaji Karyawan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #2b3e50; /* Dark background inspired by Superhero */
+            color: #f8f9fa; /* Light text */
+        }
+        .container {
+            max-width: 1300px;
+            margin: 30px auto;
+            background-color: #34495e; /* Slightly lighter dark for container */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #17a2b8; /* Accent color */
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .form-section, .table-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #3a506b; /* Darker background for sections */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            padding: 12px 8px;
+            border-color: #555;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+            border-color: #007bff;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #3a506b;
+        }
+        .table tbody tr:hover {
+            background-color: #3a506b;
+        }
+        .table .form-control {
+            width: auto;
+            display: inline-block;
+        }
+        .day-select {
+            width: 120px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #444;
+            color: #f8f9fa;
+        }
+        .total-salary {
+            font-weight: bold;
+            color: #17a2b8; /* Accent color */
+            font-size: 1.1em;
+        }
+        .all-time-total {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #17a2b8; /* Accent color */
+            padding: 10px 15px;
+            background-color: #3a506b; /* Darker background for total */
+            border-radius: 8px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .modal-header {
+            background-color: #17a2b8; /* Accent color */
+            color: white;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .modal-title {
+            font-weight: 600;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Pencatat Gaji Karyawan</h1>
+
+        <div class="form-section">
+            <h2>Tambah Karyawan Baru</h2>
+            <form id="addEmployeeForm" class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="employeeName" class="form-label">Nama Karyawan</label>
+                    <input type="text" class="form-control" id="employeeName" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="dailySalary" class="form-label">Gaji per Hari</label>
+                    <input type="number" class="form-control" id="dailySalary" step="0.01" required style="border: 1px solid #555; background-color: #444; color: #f8f9fa;">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Tambah Karyawan</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Daftar Karyawan & Gaji Mingguan</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Gaji per Hari</th>
+                            <th>Senin</th>
+                            <th>Selasa</th>
+                            <th>Rabu</th>
+                            <th>Kamis</th>
+                            <th>Jumat</th>
+                            <th>Sabtu</th>
+                            <th>Minggu</th>
+                            <th>Total Mingguan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeTableBody">
+                        <!-- Employee rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                    <button id="submitWeeklySalary" class="btn btn-success me-2">Masukan Data Mingguan</button>
+                    <button id="showOverallSalaryReport" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#overallSalaryModal">Lihat Gaji Keseluruhan</button>
+                </div>
+                <div id="grandTotalWeeklySalary" class="all-time-total">Total Gaji Mingguan: Rp 0.00</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Overall Salary Report Modal -->
+    <div class="modal fade" id="overallSalaryModal" tabindex="-1" aria-labelledby="overallSalaryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="overallSalaryModalLabel">Laporan Gaji Keseluruhan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="mb-3">Akumulasi Gaji Karyawan</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nama Karyawan</th>
+                                    <th>Total Gaji Dibayarkan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="overallSalaryTableBody">
+                                <!-- Overall salary data will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #34495e; border-color: #34495e;">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_BASE_URL = 'http://192.168.1.10:5001'; // Flask app is served from the same origin
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSalaryData();
+            document.getElementById('addEmployeeForm').addEventListener('submit', addEmployee);
+            document.getElementById('submitWeeklySalary').addEventListener('click', submitWeeklySalary);
+            document.getElementById('showOverallSalaryReport').addEventListener('click', () => {
+                // The modal is shown via data-bs-toggle and data-bs-target
+                // We just need to ensure the data is rendered when it's opened
+                loadSalaryData(true); // Pass true to indicate we only need all_time data for the modal
+            });
+        });
+
+        async function loadSalaryData(onlyOverall = false) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/salary_data`);
+                const data = await response.json();
+                if (!onlyOverall) {
+                    renderEmployeeTable(data.employees);
+                    updateGrandTotalWeeklySalary(data.employees);
+                }
+                renderOverallSalaryReport(data.all_time);
+            } catch (error) {
+                console.error('Error loading salary data:', error);
+                alert('Gagal memuat data gaji.');
+            }
+        }
+
+        function renderEmployeeTable(employees) {
+            const tableBody = document.getElementById('employeeTableBody');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            if (employees.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="11" class="text-center">Belum ada karyawan terdaftar.</td></tr>';
+                return;
+            }
+
+            employees.forEach(employee => {
+                const row = tableBody.insertRow();
+                row.insertCell().textContent = employee.name;
+                row.insertCell().textContent = parseFloat(employee.daily_salary).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+
+                const workStates = ["Libur", "Setengah Hari", "1 Hari Full"];
+
+                employee.days.forEach((dayStatus, index) => {
+                    const cell = row.insertCell();
+                    const select = document.createElement('select');
+                    select.className = 'form-select form-select-sm day-select';
+                    workStates.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state;
+                        option.textContent = state;
+                        if (state === dayStatus) {
+                            option.selected = true;
+                        }
+                        select.appendChild(option);
+                    });
+                    select.addEventListener('change', (event) => updateEmployeeDay(employee.name, index, event.target.value));
+                    cell.appendChild(select);
+                });
+
+                const weeklyTotalCell = row.insertCell();
+                weeklyTotalCell.className = 'total-salary';
+                weeklyTotalCell.textContent = parseFloat(employee.weekly_total).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+
+                const actionsCell = row.insertCell();
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'btn btn-danger btn-sm';
+                deleteButton.textContent = 'Hapus';
+                deleteButton.addEventListener('click', () => deleteEmployee(employee.name));
+                actionsCell.appendChild(deleteButton);
+            });
+        }
+
+        function updateGrandTotalWeeklySalary(employees) {
+            const grandTotalDiv = document.getElementById('grandTotalWeeklySalary');
+            let total = 0;
+            employees.forEach(employee => {
+                total += employee.weekly_total;
+            });
+            grandTotalDiv.textContent = `Total Gaji Mingguan: ${total.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}`;
+        }
+
+        function renderOverallSalaryReport(allTimeData) {
+            const overallSalaryTableBody = document.getElementById('overallSalaryTableBody');
+            overallSalaryTableBody.innerHTML = ''; // Clear existing rows
+
+            if (Object.keys(allTimeData).length === 0) {
+                overallSalaryTableBody.innerHTML = '<tr><td colspan="2" class="text-center">Belum ada data gaji keseluruhan.</td></tr>';
+                return;
+            }
+
+            for (const name in allTimeData) {
+                const row = overallSalaryTableBody.insertRow();
+                row.insertCell().textContent = name;
+                row.insertCell().textContent = parseFloat(allTimeData[name]).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+            }
+        }
+
+        async function addEmployee(event) {
+            event.preventDefault();
+            const name = document.getElementById('employeeName').value;
+            const dailySalary = document.getElementById('dailySalary').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/salary_data/add`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, daily_salary: parseFloat(dailySalary) })
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    document.getElementById('addEmployeeForm').reset();
+                    loadSalaryData(); // Reload data to update table
+                } else {
+                    alert(`Error: ${result.error}`);
+                }
+            } catch (error) {
+                console.error('Error adding employee:', error);
+                alert('Gagal menambahkan karyawan.');
+            }
+        }
+
+        async function updateEmployeeDay(name, dayIndex, newStatus) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/salary_data/update_day`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, day_index: dayIndex, new_status: newStatus })
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    loadSalaryData(); // Reload data to update table and weekly total
+                } else {
+                    alert(`Error: ${result.error}`);
+                }
+            } catch (error) {
+                console.error('Error updating employee day:', error);
+                alert('Gagal memperbarui status hari karyawan.');
+            }
+        }
+
+        async function submitWeeklySalary() {
+            if (!confirm('Apakah Anda yakin ingin submit gaji mingguan dan mereset status hari kerja?')) {
+                return;
+            }
+            try {
+                const response = await fetch(`${API_BASE_URL}/salary_data/submit_weekly`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    loadSalaryData(); // Reload data to update table and all-time total
+                } else {
+                    alert(`Error: ${result.error}`);
+                }
+            } catch (error) {
+                console.error('Error submitting weekly salary:', error);
+                alert('Gagal submit gaji mingguan.');
+            }
+        }
+
+        async function deleteEmployee(name) {
+            if (!confirm(`Apakah Anda yakin ingin menghapus karyawan ${name}?`)) {
+                return;
+            }
+            try {
+                const response = await fetch(`${API_BASE_URL}/salary_data/delete/${name}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    loadSalaryData(); // Reload data to update table
+                } else {
+                    alert(`Error: ${result.error}`);
+                }
+            } catch (error) {
+                console.error('Error deleting employee:', error);
+                alert('Gagal menghapus karyawan.');
+            }
+        }
+    </script>
+</body>
+</html>

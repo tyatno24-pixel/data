@@ -1,0 +1,101 @@
+{
+    "theme": "vapor",
+    "shopping_list": [
+        {
+            "item": "lem kuning",
+            "quantity": 10,
+            "price": 50000.0,
+            "status": "Di beli"
+        }
+    ],
+    "salary_data": {
+        "employees": [
+            {
+                "name": "samsudin",
+                "daily_salary": 90000.0,
+                "days": [
+                    "1 Hari Full",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 90000.0
+            },
+            {
+                "name": "suryono",
+                "daily_salary": 90000.0,
+                "days": [
+                    "1 Hari Full",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 90000.0
+            },
+            {
+                "name": "sunjari",
+                "daily_salary": 60000.0,
+                "days": [
+                    "1 Hari Full",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 60000.0
+            },
+            {
+                "name": "giyarti",
+                "daily_salary": 50000.0,
+                "days": [
+                    "1 Hari Full",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 50000.0
+            },
+            {
+                "name": "sifa",
+                "daily_salary": 50000.0,
+                "days": [
+                    "1 Hari Full",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 50000.0
+            },
+            {
+                "name": "salma",
+                "daily_salary": 50000.0,
+                "days": [
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur",
+                    "Libur"
+                ],
+                "weekly_total": 0.0
+            }
+        ],
+        "all_time": {}
+    },
+    "font": "Didot"
+}
