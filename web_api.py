@@ -42,24 +42,21 @@ def add_shopping_item():
     success, result = add_shopping_item_to_data(item_name, quantity, price)
     if success:
         return jsonify({"message": "Item berhasil ditambahkan", "shopping_list": result}), 201
-    else:
-        return jsonify({"error": result}), 500 # Should not happen with current logic
+    return jsonify({"error": result}), 500
 
 @app.route('/shopping_list/delete/<string:item_name>', methods=['DELETE'])
 def delete_shopping_item(item_name):
     success, result = delete_shopping_item_from_data(item_name)
     if success:
         return jsonify({"message": "Item berhasil dihapus", "shopping_list": result}), 200
-    else:
-        return jsonify({"error": result}), 404
+    return jsonify({"error": result}), 404
 
 @app.route('/shopping_list/toggle_status/<string:item_name>', methods=['PUT'])
 def toggle_shopping_item_status(item_name):
     success, result = toggle_shopping_item_status_in_data(item_name)
     if success:
         return jsonify({"message": "Status item berhasil diubah", "shopping_list": result}), 200
-    else:
-        return jsonify({"error": result}), 404
+    return jsonify({"error": result}), 404
 
 # Salary Tracker Endpoints
 @app.route('/salary_data', methods=['GET'])
@@ -84,8 +81,7 @@ def add_employee_api():
     success, result = add_employee_to_data(name, daily_salary)
     if success:
         return jsonify({"message": "Karyawan berhasil ditambahkan", "employee": result}), 201
-    else:
-        return jsonify({"error": result}), 409
+    return jsonify({"error": result}), 409
 
 @app.route('/salary_data/update_day', methods=['PUT'])
 def update_employee_day_api():
@@ -102,24 +98,21 @@ def update_employee_day_api():
     success, result = update_employee_day_in_data(name, day_index, new_status)
     if success:
         return jsonify({"message": "Status hari karyawan berhasil diperbarui", "employee": result}), 200
-    else:
-        return jsonify({"error": result}), 404
+    return jsonify({"error": result}), 404
 
 @app.route('/salary_data/submit_weekly', methods=['POST'])
 def submit_weekly_salary_data_api():
     success, result = submit_weekly_salary_to_data()
     if success:
         return jsonify({"message": "Data gaji mingguan berhasil dimasukan dan direset.", "salary_data": result}), 200
-    else:
-        return jsonify({"error": result}), 500 # Should not happen with current logic
+    return jsonify({"error": result}), 500
 
 @app.route('/salary_data/delete/<string:employee_name>', methods=['DELETE'])
 def delete_employee_api(employee_name):
     success, result = delete_employee_from_data(employee_name)
     if success:
         return jsonify({"message": "Karyawan berhasil dihapus", "salary_data": result}), 200
-    else:
-        return jsonify({"error": result}), 404
+    return jsonify({"error": result}), 404
 
 @app.route('/')
 def serve_index():
