@@ -15,11 +15,11 @@ class AppRestartHandler(FileSystemEventHandler):
     def start_process(self):
         if self.process and self.process.poll() is None:
             print(f'>>> Terminating old `{self.script_to_run}` process...')
-            self.process.terminate() # Coba terminate dulu
+            self.process.terminate()  # Coba terminate dulu
             try:
-                self.process.wait(timeout=5) # Beri waktu 5 detik untuk berhenti
+                self.process.wait(timeout=5)  # Beri waktu 5 detik untuk berhenti
             except subprocess.TimeoutExpired:
-                print(f'>>> Old `{self.script_to_run}` process did not terminate gracefully. Killing...')
+                print(f'>>> Old `{self.script_to_run}` process did not terminate gracefully. Forcing kill...')
                 self.process.kill() # Jika tidak berhenti, paksa kill
                 self.process.wait() # Tunggu sampai benar-benar mati
             time.sleep(0.5) # Beri jeda sebentar
@@ -54,11 +54,11 @@ if __name__ == "__main__":
     finally:
         if event_handler.process and event_handler.process.poll() is None:
             print(f'>>> Terminating final `{event_handler.script_to_run}` process...')
-            event_handler.process.terminate()
+            event_handler.process.terminate() # Coba terminate dulu
             try:
                 event_handler.process.wait(timeout=5)
             except subprocess.TimeoutExpired:
-                print(f'>>> Final process did not terminate gracefully. Killing...')
+                print(f'>>> Final process did not terminate gracefully. Forcing kill...')
                 event_handler.process.kill()
                 event_handler.process.wait()
         observer.join()
