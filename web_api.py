@@ -6,7 +6,7 @@ import random
 import json
 from data_manager import (
     DB_FILE,
-    load_app_data, save_app_data, get_chicken_data, add_chicken_record, delete_chicken_record, update_chicken_record, archive_chicken_data, delete_archived_chicken_record, get_mushroom_data, add_mushroom_record, delete_mushroom_record, update_mushroom_record, archive_mushroom_data, delete_archived_mushroom_record, backup_database,
+    load_app_data, save_app_data, get_chicken_data, add_chicken_record, delete_chicken_record, update_chicken_record, archive_chicken_data, delete_archived_chicken_record, get_mushroom_data, add_mushroom_record, delete_mushroom_record, update_mushroom_record, archive_mushroom_data, delete_archived_mushroom_record,
     get_salary_data, add_employee_to_data, update_employee_day_in_data, toggle_delivery_status_in_data, update_shopping_item_in_data, archive_shopping_list_data,
     submit_weekly_salary_to_data, delete_employee_from_data,
     add_shopping_item_to_data, delete_shopping_item_from_data, toggle_shopping_item_status_in_data,
@@ -81,13 +81,6 @@ def archive_shopping_list():
     if success:
         return jsonify({"message": message}), 200
     return jsonify({"error": message}), 400
-
-@app.route('/backup', methods=['POST'])
-def backup_data_api():
-    success, message = backup_database()
-    if success:
-        return jsonify({"message": message}), 200
-    return jsonify({"error": message}), 500
 
 # Chicken Management Endpoints
 @app.route('/chicken_data', methods=['GET'])
