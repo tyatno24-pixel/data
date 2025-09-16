@@ -234,6 +234,7 @@ async function displayChickenMonthlyRecap() {
                         <td class="${typeClass}">${item.type}</td>
                         <td>${item.quantity}</td>
                         <td>Rp ${item.price.toLocaleString('id-ID')}</td>
+                        <td>Rp ${(item.quantity * item.price).toLocaleString('id-ID')}</td>
                         <td>${item.date_added}</td>
                         <td><button class="btn btn-sm btn-danger py-0 px-1" onclick="deleteArchivedRecord('${month}', ${item.id}, '${item.item}')"><i class="fas fa-trash"></i></button></td>
                     </tr>`;
