@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Ayam - Wulandari Dekorasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #2b3e50;
+            color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #34495e;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: 30px auto;
+        }
+        h1, h2 {
+            color: #17a2b8;
+            border-bottom: 2px solid #17a2b8;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: #f8f9fa;
+        }
+        .btn {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-danger { background-color: #dc3545; }
+        .btn-danger:hover { background-color: #c82333; }
+        .btn-success { background-color: #28a745; }
+        .btn-success:hover { background-color: #218838; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #17a2b8;
+            color: white;
+        }
+        tr:nth-child(even) { background-color: #3a506b; }
+        tr:nth-child(odd) { background-color: #34495e; }
+        td.editable {
+            cursor: pointer;
+            background-color: #4a6280;
+        }
+        .text-success { color: #28a745 !important; }
+        .text-danger { color: #dc3545 !important; }
+        .total-display {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #17a2b8;
+        }
+        .suggestions-container { position: relative; }
+        #chicken-item-suggestions {
+            position: absolute;
+            border: 1px solid #555;
+            background-color: #3a506b;
+            width: calc(100% - 22px);
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .suggestion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #4a6280;
+        }
+        .suggestion-item:hover { background-color: #17a2b8; }
+        .delete-suggestion-btn {
+            background: none; border: none; color: #ff6b6b;
+            cursor: pointer; font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Manajemen Pakan & Telur</h1>
+            <a href="/" class="btn btn-secondary">Kembali ke Menu Utama</a>
+        </div>
+
+        <h2>Tambah Data Baru</h2>
+        <form id="add-chicken-data-form">
+            <div class="form-group">
+                <div class="suggestions-container">
+                    <label for="chicken-item-name">Nama Item (Contoh: Pakan, Vitamin, Penjualan Telur):</label>
+                    <input type="text" id="chicken-item-name" required autocomplete="off">
+                    <div id="chicken-item-suggestions"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="chicken-item-quantity">Jumlah/Kuantitas:</label>
+                <input type="number" id="chicken-item-quantity" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="chicken-item-price">Harga/Nilai (Rp):</label>
+                <input type="number" id="chicken-item-price" required min="0">
+            </div>
+            <div class="form-group">
+                <label>Jenis Transaksi:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="chickenRecordType" id="type-pemasukan" value="Pemasukan" checked>
+                    <label class="form-check-label" for="type-pemasukan">Pemasukan</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="chickenRecordType" id="type-pengeluaran" value="Pengeluaran">
+                    <label class="form-check-label" for="type-pengeluaran">Pengeluaran</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Tambah Data</button>
+        </form>
+
+        <div id="chicken-data-total" class="total-display" style="text-align: left; margin-top: 20px;"></div>
+
+        <hr style="border-color: #17a2b8; margin: 40px 0;">
+
+        <div id="chicken-data-display">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Jenis</th>
+                        <th>Jumlah</th>
+                        <th>Harga/Nilai</th>
+                        <th>Total</th>
+                        <th>Tanggal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="chicken-data-table-body"></tbody>
+            </table>
+        </div>
+
+        <!-- Bagian Rekap Bulanan -->
+        <div id="monthly-recap-section" style="margin-top: 50px;">
+            <h2>Rekap Bulanan Manajemen Ayam</h2>
+            <p>Data di sini adalah arsip dari daftar sebelumnya. Klik pada bulan untuk melihat detail.</p>
+            <div class="d-flex justify-content-start gap-2">
+                <button class="btn btn-primary" onclick="archiveChickenData()">Arsipkan Data Saat Ini</button>
+                <button class="btn btn-info" onclick="displayChickenMonthlyRecap()">Lihat Data</button>
+            </div>
+            <hr style="border-color: #17a2b8; margin: 20px 0;">
+            <div id="chicken-recap-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="chicken_management.js"></script>
+    <script>
+        // Panggil fungsi untuk menampilkan rekap saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            displayChickenMonthlyRecap();
+        });
+    </script>
+</body>
+</html>

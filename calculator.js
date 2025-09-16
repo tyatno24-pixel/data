@@ -9,26 +9,37 @@ function updateCalculatorOutput() {
 }
 
 function appendCharacter(char) {
+    // Handle operator clicks
+    if (['+', '-', '*', '/'].includes(char)) {
+        chooseOperator(char);
+        return;
+    }
+
+    // Handle number and decimal clicks
     if (resetScreen) {
         currentInput = char;
         resetScreen = false;
     } else if (currentInput === '0' && char !== '.') {
         currentInput = char;
     } else {
+        // Prevent multiple decimals
+        if (char === '.' && currentInput.includes('.')) {
+            return;
+        }
         currentInput += char;
     }
     updateCalculatorOutput();
 }
 
 function chooseOperator(nextOperator) {
-    if (currentInput === '0' && previousInput === '') return; // Don't set operator if nothing entered
+    if (currentInput === '' && previousInput === '') return;
 
-    if (previousInput !== '') {
+    // If there's already a previous number and an operator, calculate first
+    if (operator !== null) {
         calculateResult();
     }
     operator = nextOperator;
     previousInput = currentInput;
-    currentInput = '0'; // Reset current input for next number
     resetScreen = true;
 }
 
@@ -42,21 +53,15 @@ function clearCalculator() {
 
 function calculateResult() {
     let result;
+    if (operator === null || previousInput === '' || currentInput === '') return;
+
     const prev = parseFloat(previousInput);
     const current = parseFloat(currentInput);
 
-    if (isNaN(prev) || isNaN(current) || operator === null) return;
-
     switch (operator) {
-        case '+':
-            result = prev + current;
-            break;
-        case '-':
-            result = prev - current;
-            break;
-        case '*':
-            result = prev * current;
-            break;
+        case '+': result = prev + current; break;
+        case '-': result = prev - current; break;
+        case '*': result = prev * current; break;
         case '/':
             if (current === 0) {
                 alert("Cannot divide by zero!");
@@ -65,18 +70,17 @@ function calculateResult() {
             }
             result = prev / current;
             break;
-        default:
-            return;
+        default: return;
     }
     currentInput = result.toString();
     operator = null;
-    previousInput = '';
+    previousInput = ''; // Reset previous input after calculation
     resetScreen = true; // After calculation, next number should clear screen
     updateCalculatorOutput();
 }
 
 function initCalculator() {
-    // Any initialization specific to the calculator page can go here
-    // For example, ensuring the output is reset when the page is shown
-    clearCalculator();
+    // This function can be used to set up event listeners if needed in the future.
+    // For now, it's a placeholder.
+    updateCalculatorOutput();
 }

@@ -1,6 +1,9 @@
 # Abaikan file database yang berisi data pengguna
 database.json
 
+# Abaikan file konfigurasi yang berisi API key rahasia
+config.py
+
 # Abaikan file cache Python
 __pycache__/
 *.pyc

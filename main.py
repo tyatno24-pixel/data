@@ -3,8 +3,6 @@ from tkinter import messagebox
 from ttkbootstrap.constants import *
 import json 
 import os 
-import threading
-from web_api import run_flask_app
 from data_manager import load_app_data, save_app_data 
 
 # Impor halaman-halaman terpisah
@@ -22,10 +20,6 @@ class FinancialApp(ttk.Window):
         
         self.title("Manajemen Keuangan")
         self.geometry("950x700")
-
-        # Start Flask API in a separate thread
-        api_thread = threading.Thread(target=run_flask_app, daemon=True)
-        api_thread.start()
 
         container = ttk.Frame(self)
         container.pack(side="top", fill="both", expand=True)

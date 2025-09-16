@@ -13,18 +13,14 @@
             background-color: #2b3e50; /* Dark background inspired by Superhero */
             color: #f8f9fa; /* Light text */
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Full viewport height */
         }
         .container {
             background-color: #34495e; /* Slightly lighter dark for container */
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 900px; /* Increased max-width for more columns */
-            width: 90%;
+            max-width: 900px;
+            margin: 30px auto; /* Pusatkan container secara horizontal */
             text-align: center;
         }
         h1 {
@@ -130,6 +126,10 @@
         }
         tr:nth-child(odd) {
             background-color: #34495e;
+        }
+        td.editable {
+            cursor: pointer;
+            background-color: #4a6280; /* Beri sedikit highlight pada sel yang bisa diedit */
         }
         .status-bought {
             color: #28a745; /* Green for bought */
@@ -264,15 +264,58 @@
             font-size: 1.1em;
             font-weight: 500;
         }
+
+        /* Gaya untuk kotak saran autocomplete */
+        .suggestions-container {
+            position: relative;
+        }
+        #item-suggestions {
+            position: absolute;
+            border: 1px solid #555;
+            background-color: #3a506b;
+            width: calc(100% - 22px);
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .suggestion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #4a6280;
+        }
+        .suggestion-item:hover {
+            background-color: #17a2b8;
+        }
+        .delete-suggestion-btn {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        /* Gaya untuk halaman rekap */
+        .recap-month-header {
+            background-color: #17a2b8;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="main-menu-page">
             <h1>Pencatat Keuangan Wulandari Dekorasi</h1>
-            <p class="app-description">Aplikasi web untuk membantu manajemen keuangan harian.</p>
+            <p class="app-description" id="motivational-quote">Memuat kutipan motivasi...</p>
             <div class="main-menu-grid">
-                <div class="menu-card" onclick="showPage('shopping-list-page')">
+                <div class="menu-card" onclick="window.location.href='/shopping_list'">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Daftar Belanja</span>
                 </div>
@@ -284,53 +327,18 @@
                     <i class="fas fa-calculator"></i>
                     <span>Kalkulator</span>
                 </div>
+                <div class="menu-card" onclick="window.location.href='/chicken_management'">
+                    <i class="fas fa-egg"></i>
+                    <span>Manajemen Ayam</span>
+                </div>
+                <div class="menu-card" onclick="window.location.href='/mushroom_management'">
+                    <i class="fas fa-leaf"></i> <!-- Contoh ikon untuk jamur -->
+                    <span>Manajemen Jamur</span>
+                </div>
             </div>
             <div class="main-menu-footer">
                 <span>Versi 1.0.0</span>
             </div>
-        </div>
-
-        <div id="shopping-list-page" class="hidden">
-            <button class="btn" onclick="showPage('main-menu-page')" style="margin-bottom: 20px;">Kembali ke Menu Utama</button>
-            <h2>Daftar Belanja</h2>
-            <h2>Tambah Item Belanja Baru</h2>
-            <form id="add-shopping-item-form">
-                <div class="form-group">
-                    <label for="shopping-item-name">Nama Item:</label>
-                    <input type="text" id="shopping-item-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="shopping-item-quantity">Kuantitas:</label>
-                    <input type="number" id="shopping-item-quantity" required min="1">
-                </div>
-                <div class="form-group">
-                    <label for="shopping-item-price">Harga Satuan:</label>
-                    <input type="number" id="shopping-item-price" required min="0">
-                </div>
-                <button type="submit" class="btn">Tambah ke Daftar Belanja</button>
-            </form>
-
-            <hr style="border-color: #17a2b8; margin: 40px 0;">
-
-            <div id="shopping-list-display">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Barang</th>
-                            <th>Jumlah</th>
-                            <th>Harga Satuan</th>
-                            <th>Total Harga</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="shopping-list-table-body">
-                        <!-- Item daftar belanja akan dimasukkan di sini oleh JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            <div id="shopping-list-total" class="total-display"></div>
-            <div id="shopping-list-unbought-total" class="total-display"></div>
         </div>
 
         <!-- Placeholder for other pages -->
@@ -361,266 +369,50 @@
             </div>
         </div>
 
-        <div id="theme-page" class="hidden">
-            <button class="btn" onclick="showPage('main-menu-page')" style="margin-bottom: 20px;">Kembali ke Menu Utama</button>
-            <h2>Pengaturan Tema</h2>
-            <p>Konten pengaturan tema akan datang di sini...</p>
-        </div>
-
     </div>
 
+    <!-- Load external JavaScript files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="calculator.js"></script>
     <script>
-        // API_BASE_URL diatur ke string kosong agar request dikirim ke domain yang sama (relatif).
-        // Ini akan berfungsi baik di lokal (saat menjalankan run_server_only.py) maupun di PythonAnywhere.        
+        // This small script handles page navigation and initialization.
         const API_BASE_URL = '';
-        // Fungsi untuk menampilkan/menyembunyikan halaman
+
         function showPage(pageId) {
-            document.getElementById('main-menu-page').classList.add('hidden');
-            document.getElementById('shopping-list-page').classList.add('hidden');
-            // document.getElementById('salary-tracker-page').classList.add('hidden'); // Removed as it's a separate file
-            document.getElementById('calculator-page').classList.add('hidden');
-            document.getElementById('theme-page').classList.add('hidden');
+            // Hide all pages
+            document.querySelectorAll('.container > div').forEach(page => {
+                if (page.id) page.classList.add('hidden');
+            });
 
-            document.getElementById(pageId).classList.remove('hidden');
-
-            // Jika halaman daftar belanja ditampilkan, muat datanya
-            if (pageId === 'shopping-list-page') {
-                fetchAppData();
+            // Show the requested page
+            const pageToShow = document.getElementById(pageId);
+            if (pageToShow) {
+                pageToShow.classList.remove('hidden');
             }
-            // else if (pageId === 'salary-tracker-page') { // Removed as it's a separate file
-            //     loadSalaryData();
-            // }
+
+            // Initialize page-specific data
         }
 
-        async function fetchAppData() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/data`);
-                if (!response.ok) {
-                    throw new Error(`Kesalahan HTTP! status: ${response.status}`);
-                }
-                const data = await response.json();
-                displayAppData(data);
-            } catch (error) {
-                console.error('Gagal mengambil data:', error);
-                document.getElementById('shopping-list-table-body').innerHTML = `<tr><td colspan="6" class="error">Gagal memuat data. Pastikan aplikasi desktop berjalan dan alamat IP sudah benar.</td></tr>`;
-                document.getElementById('shopping-list-total').textContent = 'Total Belanjaan: Rp 0.00';
-            }
-        }
-
-        function displayAppData(data) {
-            const shoppingListTableBody = document.getElementById('shopping-list-table-body');
-            shoppingListTableBody.innerHTML = ''; // Bersihkan tabel
-            let totalBelanja = 0;
-            let totalBelanjaUnbought = 0;
-
-            if (data.shopping_list && data.shopping_list.length > 0) {
-                data.shopping_list.forEach(item => {
-                    const row = shoppingListTableBody.insertRow();
-                    const totalHarga = item.quantity * item.price;
-                    totalBelanja += totalHarga;
-
-                    if (item.status === 'Belum di beli') {
-                        totalBelanjaUnbought += totalHarga;
-                    }
-
-                    row.innerHTML = `
-                        <td>${item.item}</td>
-                        <td>${item.quantity}</td>
-                        <td>Rp ${item.price.toLocaleString('id-ID')}</td>
-                        <td>Rp ${totalHarga.toLocaleString('id-ID')}</td>
-                        <td class="status-${item.status.toLowerCase().replace(/ /g, '-')}" onclick="toggleShoppingItemStatus('${item.item}')">${item.status}</td>
-                        <td><button class="btn btn-danger" onclick="deleteShoppingItem('${item.item}')">Hapus</button></td>
-                    `;
-                });
-            } else {
-                const row = shoppingListTableBody.insertRow();
-                const cell = row.insertCell();
-                cell.colSpan = 6;
-                cell.textContent = 'Daftar belanja kosong.';
-                cell.style.textAlign = 'center';
-            }
-            document.getElementById('shopping-list-total').textContent = `Total Belanjaan: Rp ${totalBelanja.toLocaleString('id-ID')}`;
-            document.getElementById('shopping-list-unbought-total').textContent = `Total Belanja Belum Dibeli: Rp ${totalBelanjaUnbought.toLocaleString('id-ID')}`;
-        }
-
-        // Fungsi untuk menambahkan item ke daftar belanja
-        async function addShoppingItem(event) {
-            event.preventDefault(); // Mencegah form submit secara default
-
-            const itemInput = document.getElementById('shopping-item-name');
-            const quantityInput = document.getElementById('shopping-item-quantity');
-            const priceInput = document.getElementById('shopping-item-price');
-
-            const itemName = itemInput.value;
-            const quantity = parseInt(quantityInput.value); // Pastikan kuantitas adalah angka
-            const price = parseFloat(priceInput.value); // Pastikan harga adalah angka
-
-            if (!itemName || isNaN(quantity) || quantity <= 0 || isNaN(price) || price < 0) {
-                alert('Nama item, kuantitas (angka positif), dan harga (angka non-negatif) diperlukan!');
-                return;
-            }
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/shopping_list/add`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ item: itemName, quantity: quantity, price: price }),
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert(result.message);
-                    itemInput.value = ''; // Bersihkan input
-                    quantityInput.value = ''; // Bersihkan input
-                    priceInput.value = ''; // Bersihkan input
-                    fetchAppData(); // Muat ulang data untuk menampilkan daftar yang diperbarui
-                } else {
-                    alert('Gagal menambahkan item: ' + (result.error || 'Terjadi kesalahan.'));
-                }
-            } catch (error) {
-                console.error('Error saat menambahkan item:', error);
-                alert('Terjadi kesalahan jaringan atau server.');
-            }
-        }
-
-        // Fungsi untuk menghapus item dari daftar belanja
-        async function deleteShoppingItem(itemName) {
-            if (!confirm(`Apakah Anda yakin ingin menghapus item ${itemName}?`)) {
-                return;
-            }
-            try {
-                const response = await fetch(`${API_BASE_URL}/shopping_list/delete/${itemName}`, {
-                    method: 'DELETE',
-                });
-                const result = await response.json();
-                if (response.ok) {
-                    alert(result.message);
-                    fetchAppData(); // Muat ulang data
-                } else {
-                    alert('Gagal menghapus item: ' + (result.error || 'Terjadi kesalahan.'));
-                }
-            } catch (error) {
-                console.error('Error saat menghapus item:', error);
-                alert('Terjadi kesalahan jaringan atau server.');
-            }
-        }
-
-        // Fungsi untuk mengubah status item
-        async function toggleShoppingItemStatus(itemName) {
-            try {
-                const response = await fetch(`${API_BASE_URL}/shopping_list/toggle_status/${itemName}`, {
-                    method: 'PUT',
-                });
-                const result = await response.json();
-                if (response.ok) {
-                    fetchAppData(); // Muat ulang data untuk menampilkan status baru
-                } else {
-                    alert('Gagal mengubah status item: ' + (result.error || 'Terjadi kesalahan.'));
-                }
-            } catch (error) {
-                console.error('Error saat mengubah status item:', error);
-                alert('Terjadi kesalahan jaringan atau server.');
-            }
-        }
-
-        // Calculator Functions
-        let currentInput = '0';
-        let operator = null;
-        let previousInput = '';
-        let resetScreen = false;
-
-        function updateCalculatorOutput() {
-            document.getElementById('calculatorOutput').value = currentInput;
-        }
-
-        function appendCharacter(char) {
-            // Handle operator clicks
-            if (['+', '-', '*', '/'].includes(char)) {
-                chooseOperator(char);
-                return;
-            }
-
-            // Handle number and decimal clicks
-            if (resetScreen) {
-                currentInput = char;
-                resetScreen = false;
-            } else if (currentInput === '0' && char !== '.') {
-                currentInput = char;
-            } else {
-                // Prevent multiple decimals
-                if (char === '.' && currentInput.includes('.')) {
-                    return;
-                }
-                currentInput += char;
-            }
-            updateCalculatorOutput();
-        }
-
-        function chooseOperator(nextOperator) {
-            if (currentInput === '' && previousInput === '') return;
-
-            // If there's already a previous number and an operator, calculate first
-            if (operator !== null) {
-                calculateResult();
-            }
-            operator = nextOperator;
-            previousInput = currentInput;
-            resetScreen = true;
-        }
-
-        function clearCalculator() {
-            currentInput = '0';
-            operator = null;
-            previousInput = '';
-            resetScreen = false;
-            updateCalculatorOutput();
-        }
-
-        function calculateResult() {
-            let result;
-            if (operator === null || previousInput === '' || currentInput === '') return;
-
-            const prev = parseFloat(previousInput);
-            const current = parseFloat(currentInput);
-
-            switch (operator) {
-                case '+':
-                    result = prev + current;
-                    break;
-                case '-':
-                    result = prev - current;
-                    break;
-                case '*':
-                    result = prev * current;
-                    break;
-                case '/':
-                    if (current === 0) {
-                        alert("Cannot divide by zero!");
-                        clearCalculator();
-                        return;
-                    }
-                    result = prev / current;
-                    break;
-                default:
-                    return;
-            }
-            currentInput = result.toString();
-            operator = null;
-            previousInput = ''; // Reset previous input after calculation
-            resetScreen = true; // After calculation, next number should clear screen
-            updateCalculatorOutput();
-        }
-
-        // Inisialisasi: tampilkan menu utama saat pertama kali dimuat
+        // Initial load
         document.addEventListener('DOMContentLoaded', () => {
             showPage('main-menu-page');
-            const shoppingForm = document.getElementById('add-shopping-item-form');
-            if (shoppingForm) {
-                shoppingForm.addEventListener('submit', addShoppingItem);
+
+            // Logika untuk menampilkan kutipan motivasi acak
+            const quotes = [
+                '🌟 "Usaha tidak akan pernah mengkhianati hasil. Mungkin tidak hari ini, tapi suatu hari nanti semua kerja kerasmu akan terbayar lunas."',
+                '🌟 "Saat kamu merasa ingin menyerah, ingat kembali alasan kenapa kamu memulai."',
+                '🌟 "Setiap langkah kecil hari ini adalah pondasi untuk kesuksesan besar di masa depan."',
+                '🌟 "Jangan takut gagal dalam usaha. Takutlah jika kamu berhenti mencoba."',
+                '🌟 "Keberhasilan bukan milik mereka yang paling pintar, tapi milik mereka yang paling gigih dalam berusaha."',
+                '🌟 "Rezeki tidak datang dari seberapa cepat kamu berlari, tapi dari seberapa konsisten kamu melangkah."',
+                '🌟 "Teruslah berusaha meski pelan, karena tidak ada perjuangan yang sia-sia."'
+            ];
+
+            const quoteElement = document.getElementById('motivational-quote');
+            if (quoteElement) {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                quoteElement.innerHTML = quotes[randomIndex];
             }
         });
     </script>

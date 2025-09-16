@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Belanja - Wulandari Dekorasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #2b3e50;
+            color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #34495e;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: 30px auto;
+        }
+        h1, h2 {
+            color: #17a2b8;
+            border-bottom: 2px solid #17a2b8;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: #f8f9fa;
+        }
+        .btn {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-danger { background-color: #dc3545; }
+        .btn-danger:hover { background-color: #c82333; }
+        .btn-success { background-color: #28a745; }
+        .btn-success:hover { background-color: #218838; }
+        .hidden { display: none; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #17a2b8;
+            color: white;
+        }
+        tr:nth-child(even) { background-color: #3a506b; }
+        tr:nth-child(odd) { background-color: #34495e; }
+        td.editable {
+            cursor: pointer;
+            background-color: #4a6280;
+        }
+        .status-di-beli { color: #28a745; font-weight: bold; }
+        .status-belum-di-beli { color: #dc3545; font-weight: bold; }
+        .total-display {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #17a2b8;
+        }
+        .suggestions-container { position: relative; }
+        #item-suggestions {
+            position: absolute;
+            border: 1px solid #555;
+            background-color: #3a506b;
+            width: calc(100% - 22px);
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .suggestion-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #4a6280;
+        }
+        .suggestion-item:hover { background-color: #17a2b8; }
+        .delete-suggestion-btn {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .recap-month-header {
+            background-color: #17a2b8;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Daftar Belanja</h1>
+            <a href="/" class="btn btn-secondary">Kembali ke Menu Utama</a>
+        </div>
+
+        <div id="shopping-list-page">
+            <h2>Tambah Item Belanja Baru</h2>
+            <form id="add-shopping-item-form">
+                <div class="form-group">
+                    <div class="suggestions-container">
+                        <label for="shopping-item-name">Nama Item:</label>
+                        <input type="text" id="shopping-item-name" required autocomplete="off">
+                        <div id="item-suggestions"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopping-item-quantity">Kuantitas:</label>
+                    <input type="number" id="shopping-item-quantity" required min="1">
+                </div>
+                <div class="form-group">
+                    <label for="shopping-item-price">Harga Satuan:</label>
+                    <input type="number" id="shopping-item-price" required min="0">
+                </div>
+                <div class="d-flex justify-content-start gap-2">
+                    <button type="submit" class="btn btn-success">Tambah ke Daftar Belanja</button>
+                    <button type="button" class="btn btn-info" onclick="showPage('monthly-recap-page')">Rekap Data Bulanan</button>
+                </div>
+            </form>
+            <div id="shopping-list-total" class="total-display" style="text-align: left; margin-top: 20px;"></div>
+            <div id="shopping-list-unbought-total" class="total-display" style="text-align: left;"></div>
+
+            <hr style="border-color: #17a2b8; margin: 40px 0;">
+
+            <div id="shopping-list-display">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Barang</th>
+                            <th>Status</th>
+                            <th>Barang Sampai</th>
+                            <th>Jumlah</th>
+                            <th>Harga Satuan</th>
+                            <th>Total Harga</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shopping-list-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="monthly-recap-page" class="hidden">
+            <button class="btn" onclick="showPage('shopping-list-page')" style="margin-bottom: 20px;">Kembali ke Daftar Belanja</button>
+            <h2>Rekap Belanja Bulanan</h2>
+            <p>Data di sini adalah arsip dari daftar belanja sebelumnya. Klik pada bulan untuk melihat detail.</p>
+            <button class="btn btn-primary" onclick="archiveData()">Arsipkan Data Belanja Saat Ini</button>
+            <hr style="border-color: #17a2b8; margin: 20px 0;">
+            <div id="recap-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="shopping_list.js"></script>
+    <script>
+        const API_BASE_URL = '';
+
+        function showPage(pageId) {
+            document.getElementById('shopping-list-page').classList.add('hidden');
+            document.getElementById('monthly-recap-page').classList.add('hidden');
+
+            const pageToShow = document.getElementById(pageId);
+            if (pageToShow) {
+                pageToShow.classList.remove('hidden');
+            }
+
+            if (pageId === 'monthly-recap-page') {
+                displayMonthlyRecap();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initShoppingList();
+            showPage('shopping-list-page');
+        });
+    </script>
+</body>
+</html>

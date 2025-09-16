@@ -2,10 +2,67 @@
     "theme": "vapor",
     "shopping_list": [
         {
-            "item": "lem kuning",
-            "quantity": 10,
-            "price": 50000.0,
-            "status": "Di beli"
+            "id": 1757982670.793452,
+            "item": "lakban",
+            "quantity": 2,
+            "price": 18000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982636.665281,
+            "item": "tali macrame",
+            "quantity": 1,
+            "price": 38000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982613.641552,
+            "item": "kaktus",
+            "quantity": 150,
+            "price": 300,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982597.497502,
+            "item": "Lem kuning",
+            "quantity": 1,
+            "price": 46000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982583.804522,
+            "item": "Kertas Foto",
+            "quantity": 1,
+            "price": 44000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982563.114425,
+            "item": "Bubble warp",
+            "quantity": 1,
+            "price": 125000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Belum Sampai"
+        },
+        {
+            "id": 1757982543.602813,
+            "item": "kayu lan 1 truk",
+            "quantity": 1,
+            "price": 3800000,
+            "status": "Belum di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
         }
     ],
     "salary_data": {
@@ -15,70 +72,70 @@
                 "daily_salary": 90000.0,
                 "days": [
                     "1 Hari Full",
-                    "Libur",
+                    "1 Hari Full",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur"
                 ],
-                "weekly_total": 90000.0
+                "weekly_total": 180000.0
             },
             {
                 "name": "suryono",
                 "daily_salary": 90000.0,
                 "days": [
                     "1 Hari Full",
-                    "Libur",
+                    "1 Hari Full",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur"
                 ],
-                "weekly_total": 90000.0
+                "weekly_total": 180000.0
             },
             {
                 "name": "sunjari",
                 "daily_salary": 60000.0,
                 "days": [
                     "1 Hari Full",
-                    "Libur",
+                    "1 Hari Full",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur"
                 ],
-                "weekly_total": 60000.0
+                "weekly_total": 120000.0
             },
             {
                 "name": "giyarti",
                 "daily_salary": 50000.0,
                 "days": [
                     "1 Hari Full",
-                    "Libur",
+                    "1 Hari Full",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur"
                 ],
-                "weekly_total": 50000.0
+                "weekly_total": 100000.0
             },
             {
                 "name": "sifa",
                 "daily_salary": 50000.0,
                 "days": [
                     "1 Hari Full",
-                    "Libur",
+                    "1 Hari Full",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur",
                     "Libur"
                 ],
-                "weekly_total": 50000.0
+                "weekly_total": 100000.0
             },
             {
                 "name": "salma",
@@ -97,5 +154,1235 @@
         ],
         "all_time": {}
     },
-    "font": "Didot"
+    "font": "Didot",
+    "monthly_recap": {
+        "2025-09": {
+            "total": 24426000,
+            "items": [
+                {
+                    "id": 1757981214.664295,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 50000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981200.136707,
+                    "item": "doble tape",
+                    "quantity": 1,
+                    "price": 58000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981196.112149,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981180.151671,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981170.392679,
+                    "item": "kaktus",
+                    "quantity": 150,
+                    "price": 300,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981146.025072,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981135.97948,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 50000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757980574.29521,
+                    "item": "Mika 30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979946.981016,
+                    "item": "Paku 2 cm",
+                    "quantity": 1,
+                    "price": 33000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979939.534898,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979925.821465,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979920.182326,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979880.510723,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979871.294732,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979860.366914,
+                    "item": "karet",
+                    "quantity": 2,
+                    "price": 7000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979840.614971,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979772.719666,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979760.470851,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979741.271974,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979726.832247,
+                    "item": "Mika 30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979710.392784,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979694.041728,
+                    "item": "isi cuter besar",
+                    "quantity": 1,
+                    "price": 86000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979665.688604,
+                    "item": "Paku 3 cm",
+                    "quantity": 1,
+                    "price": 50000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979646.552682,
+                    "item": "doble tape",
+                    "quantity": 1,
+                    "price": 58000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979619.096941,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979610.057246,
+                    "item": "Mika 30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979588.113166,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979578.465274,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979557.827318,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 1350000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757979511.471096,
+                    "item": "spons gerinda",
+                    "quantity": 1,
+                    "price": 98000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757977626.903312,
+                    "item": "kaktus",
+                    "quantity": 150,
+                    "price": 300,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978763.396576,
+                    "item": "teriplek",
+                    "quantity": 25,
+                    "price": 43000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982297.999101,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982288.628823,
+                    "item": "Mesin jam",
+                    "quantity": 1,
+                    "price": 47000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982273.717091,
+                    "item": "doble tape",
+                    "quantity": 1,
+                    "price": 117000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982254.63719,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982246.533615,
+                    "item": "Paku 3 cm",
+                    "quantity": 1,
+                    "price": 50000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982238.083146,
+                    "item": "Paku 2 cm",
+                    "quantity": 1,
+                    "price": 40000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982226.749419,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 134000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982209.733713,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982202.470387,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982190.837819,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982182.895531,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982176.326019,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982161.446352,
+                    "item": "Paku 2 cm",
+                    "quantity": 1,
+                    "price": 40000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982138.038265,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982129.062584,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982106.398973,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 142000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982081.46274,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982062.095472,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982055.110948,
+                    "item": "isi kater kecil",
+                    "quantity": 1,
+                    "price": 42000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982023.647039,
+                    "item": "stick kayu",
+                    "quantity": 1,
+                    "price": 50000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982012.839579,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 53000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981990.399947,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981949.392797,
+                    "item": "Bubble warp",
+                    "quantity": 2,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981932.490469,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981922.20168,
+                    "item": "Mika",
+                    "quantity": 1,
+                    "price": 302000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981900.425989,
+                    "item": "doble tape",
+                    "quantity": 1,
+                    "price": 58000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981891.585246,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981880.688496,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981864.496676,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981858.794352,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981850.777367,
+                    "item": "kayu lan 2 truk",
+                    "quantity": 2,
+                    "price": 3800000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981802.577763,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981797.289435,
+                    "item": "Flexibles",
+                    "quantity": 1,
+                    "price": 69000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981789.386298,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981780.337552,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981775.051071,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981768.379277,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981760.818984,
+                    "item": "tali macrame",
+                    "quantity": 1,
+                    "price": 75000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981735.515883,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981709.986992,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981703.219238,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981697.914896,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981692.802469,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757981684.123833,
+                    "item": "mika  30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757982525.86753,
+                    "item": "mdf ",
+                    "quantity": 1,
+                    "price": 7460000,
+                    "status": "Di beli",
+                    "date_added": "2025-09-16",
+                    "delivery_status": "Sudah Sampai"
+                }
+            ]
+        },
+        "2025-05": {
+            "total": 1102000.0,
+            "items": [
+                {
+                    "id": 1757978114.604796,
+                    "item": "Mika 30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-29",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978115.743744,
+                    "item": "isi kape besar",
+                    "quantity": 1,
+                    "price": 60000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-29",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978116.745165,
+                    "item": "Kertas Foto",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-29",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978117.746026,
+                    "item": "Plastik laminasi",
+                    "quantity": 1,
+                    "price": 120000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-29",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978119.74758,
+                    "item": "Paku 2 cm",
+                    "quantity": 1,
+                    "price": 33000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978120.748315,
+                    "item": "Paku 3 cm",
+                    "quantity": 1,
+                    "price": 50000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978121.749043,
+                    "item": "Lem kuning",
+                    "quantity": 1,
+                    "price": 57000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978122.749738,
+                    "item": "Krek",
+                    "quantity": 1,
+                    "price": 49000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978123.750413,
+                    "item": "mika  30 m",
+                    "quantity": 1,
+                    "price": 272000,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978124.751157,
+                    "item": "Flexibles",
+                    "quantity": 1,
+                    "price": 69000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-05-30",
+                    "delivery_status": "Sudah Sampai"
+                }
+            ]
+        },
+        "2025-02": {
+            "total": 488000.0,
+            "items": [
+                {
+                    "id": 1757978125.751842,
+                    "item": "Mesin jam",
+                    "quantity": 1,
+                    "price": 143000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978126.752517,
+                    "item": "brostel",
+                    "quantity": 1,
+                    "price": 36000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978127.753209,
+                    "item": "skulen",
+                    "quantity": 1,
+                    "price": 40000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978128.753931,
+                    "item": "Bubble warp",
+                    "quantity": 1,
+                    "price": 125000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978129.75515,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 53000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978130.756344,
+                    "item": "Lem",
+                    "quantity": 1,
+                    "price": 59000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978131.757215,
+                    "item": "Kertas thermal",
+                    "quantity": 1,
+                    "price": 32000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-02-06",
+                    "delivery_status": "Sudah Sampai"
+                }
+            ]
+        },
+        "2025-03": {
+            "total": 448000.0,
+            "items": [
+                {
+                    "id": 1757978132.757942,
+                    "item": "Mika",
+                    "quantity": 1,
+                    "price": 281000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-03-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978133.758633,
+                    "item": "lakban",
+                    "quantity": 1,
+                    "price": 94000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-03-06",
+                    "delivery_status": "Sudah Sampai"
+                },
+                {
+                    "id": 1757978134.759322,
+                    "item": "paku",
+                    "quantity": 1,
+                    "price": 73000.0,
+                    "status": "Di beli",
+                    "date_added": "2025-03-06",
+                    "delivery_status": "Sudah Sampai"
+                }
+            ]
+        }
+    },
+    "item_history": {
+        "lakban": {
+            "id": 1757981780.337552,
+            "item": "lakban",
+            "quantity": 1,
+            "price": 94000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "doble tape": {
+            "id": 1757981900.425989,
+            "item": "doble tape",
+            "quantity": 1,
+            "price": 58000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "kertas foto": {
+            "id": 1757981709.986992,
+            "item": "Kertas Foto",
+            "quantity": 1,
+            "price": 120000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "lem kuning": {
+            "id": 1757981697.914896,
+            "item": "Lem kuning",
+            "quantity": 1,
+            "price": 57000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "kaktus": {
+            "id": 1757977626.903312,
+            "item": "kaktus",
+            "quantity": 150,
+            "price": 300,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "bubble warp": {
+            "id": 1757981703.219238,
+            "item": "Bubble warp",
+            "quantity": 1,
+            "price": 125000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "mika 30 m": {
+            "id": 1757978114.604796,
+            "item": "Mika 30 m",
+            "quantity": 1,
+            "price": 272000,
+            "status": "Di beli",
+            "date_added": "2025-05-29",
+            "delivery_status": "Sudah Sampai"
+        },
+        "paku 2 cm": {
+            "id": 1757982161.446352,
+            "item": "Paku 2 cm",
+            "quantity": 1,
+            "price": 40000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "kertas thermal": {
+            "id": 1757981735.515883,
+            "item": "Kertas thermal",
+            "quantity": 1,
+            "price": 32000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "karet": {
+            "id": 1757979860.366914,
+            "item": "karet",
+            "quantity": 2,
+            "price": 7000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "plastik laminasi": {
+            "id": 1757981692.802469,
+            "item": "Plastik laminasi",
+            "quantity": 1,
+            "price": 120000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "isi cuter besar": {
+            "id": 1757979694.041728,
+            "item": "isi cuter besar",
+            "quantity": 1,
+            "price": 86000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "paku 3 cm": {
+            "id": 1757982246.533615,
+            "item": "Paku 3 cm",
+            "quantity": 1,
+            "price": 50000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "spons gerinda": {
+            "id": 1757979511.471096,
+            "item": "spons gerinda",
+            "quantity": 1,
+            "price": 98000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "isi kape besar": {
+            "id": 1757978115.743744,
+            "item": "isi kape besar",
+            "quantity": 1,
+            "price": 60000,
+            "status": "Di beli",
+            "date_added": "2025-05-29",
+            "delivery_status": "Sudah Sampai"
+        },
+        "krek": {
+            "id": 1757978122.749738,
+            "item": "Krek",
+            "quantity": 1,
+            "price": 49000.0,
+            "status": "Di beli",
+            "date_added": "2025-05-30",
+            "delivery_status": "Sudah Sampai"
+        },
+        "mika  30 m": {
+            "id": 1757981684.123833,
+            "item": "mika  30 m",
+            "quantity": 1,
+            "price": 272000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "flexibles": {
+            "id": 1757981797.289435,
+            "item": "Flexibles",
+            "quantity": 1,
+            "price": 69000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "mesin jam": {
+            "id": 1757982288.628823,
+            "item": "Mesin jam",
+            "quantity": 1,
+            "price": 47000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "brostel": {
+            "id": 1757978126.752517,
+            "item": "brostel",
+            "quantity": 1,
+            "price": 36000.0,
+            "status": "Di beli",
+            "date_added": "2025-02-06",
+            "delivery_status": "Sudah Sampai"
+        },
+        "skulen": {
+            "id": 1757978127.753209,
+            "item": "skulen",
+            "quantity": 1,
+            "price": 40000.0,
+            "status": "Di beli",
+            "date_added": "2025-02-06",
+            "delivery_status": "Sudah Sampai"
+        },
+        "lem": {
+            "id": 1757978130.756344,
+            "item": "Lem",
+            "quantity": 1,
+            "price": 59000.0,
+            "status": "Di beli",
+            "date_added": "2025-02-06",
+            "delivery_status": "Sudah Sampai"
+        },
+        "mika": {
+            "id": 1757981922.20168,
+            "item": "Mika",
+            "quantity": 1,
+            "price": 302000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "paku": {
+            "id": 1757978134.759322,
+            "item": "paku",
+            "quantity": 1,
+            "price": 73000.0,
+            "status": "Di beli",
+            "date_added": "2025-03-06",
+            "delivery_status": "Sudah Sampai"
+        },
+        "teriplek": {
+            "id": 1757978763.396576,
+            "item": "teriplek",
+            "quantity": 25,
+            "price": 43000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "isi kater kecil": {
+            "id": 1757982055.110948,
+            "item": "isi kater kecil",
+            "quantity": 1,
+            "price": 42000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "stick kayu": {
+            "id": 1757982023.647039,
+            "item": "stick kayu",
+            "quantity": 1,
+            "price": 50000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "kayu lan 2 truk": {
+            "id": 1757981850.777367,
+            "item": "kayu lan 2 truk",
+            "quantity": 2,
+            "price": 3800000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "tali macrame": {
+            "id": 1757981760.818984,
+            "item": "tali macrame",
+            "quantity": 1,
+            "price": 75000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        },
+        "mdf ": {
+            "id": 1757982525.86753,
+            "item": "mdf ",
+            "quantity": 1,
+            "price": 7460000,
+            "status": "Di beli",
+            "date_added": "2025-09-16",
+            "delivery_status": "Sudah Sampai"
+        }
+    },
+    "chicken_data": [],
+    "chicken_item_history": {
+        "pakan": {
+            "id": 1757989369.065123,
+            "item": "pakan",
+            "quantity": 50,
+            "price": 7000,
+            "type": "Pengeluaran",
+            "date_added": "2025-09-16"
+        },
+        "telur": {
+            "id": 1757988017.767203,
+            "item": "telur",
+            "quantity": 5,
+            "price": 25000,
+            "type": "Pemasukan",
+            "date_added": "2025-09-16"
+        }
+    },
+    "chicken_monthly_recap": {
+        "2025-09": {
+            "total_pemasukan": 0,
+            "total_pengeluaran": 0,
+            "laba_rugi": 0,
+            "items": []
+        }
+    },
+    "mushroom_data": [
+        {
+            "id": 1757989853.883278,
+            "item": "tenaga kerja",
+            "quantity": 1,
+            "price": 1000000,
+            "type": "Pengeluaran",
+            "date_added": "2025-09-16"
+        },
+        {
+            "id": 1757989824.118209,
+            "item": "baglog",
+            "quantity": 10000,
+            "price": 2200,
+            "type": "Pengeluaran",
+            "date_added": "2025-09-16"
+        }
+    ],
+    "mushroom_item_history": {
+        "baglog": {
+            "id": 1757989824.118209,
+            "item": "baglog",
+            "quantity": 10000,
+            "price": 2200,
+            "type": "Pengeluaran",
+            "date_added": "2025-09-16"
+        },
+        "tenaga kerja": {
+            "id": 1757989853.883278,
+            "item": "tenaga kerja",
+            "quantity": 1,
+            "price": 1000000,
+            "type": "Pengeluaran",
+            "date_added": "2025-09-16"
+        }
+    }
 }
